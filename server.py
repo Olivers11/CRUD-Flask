@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 from flask_mysqldb import MySQL
 
 
@@ -29,6 +29,13 @@ def index():
     cursor.close()
     print(data)
     return render_template("index.html", estudiantes=data)
+
+
+
+@app.route("/add_est", methods=['POST'])
+def add_est():
+    if request.method == 'POST':
+        pass
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)

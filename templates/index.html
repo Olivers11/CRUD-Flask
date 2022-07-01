@@ -7,7 +7,17 @@
         <div class="col">
             <div class="card card-body">
                 <form action="{{url_for('add_est')}}" method="POST">
-                    
+                    <h3 class="card-title text-center" >Agregar Alumno</h3>
+                    <div class="form-group">
+                        <input class="form-control text-center" type="text" placeholder="Ingrese su Nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control text-center" type="text" placeholder="Ingrese su Edad" name="edad">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control text-center" type="text" placeholder="Ingrese su Carrera" name="carrera">
+                    </div>
+                    <input type="submit" class="btn btn-success btn-block" value="Guardar">
                 </form>
             </div>
 
