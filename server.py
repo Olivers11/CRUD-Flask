@@ -39,7 +39,7 @@ def add_est():
         edad = request.form['edad']
         carrera = request.form['carrera']
         cursor = mysql.connection.cursor()
-        query = "INSERT INTO estudiante(nombre, edad carrera) VALUES(%s, %s, %s)"
+        query = "INSERT INTO estudiante(nombre, edad, carrera) VALUES(%s, %s, %s)"
         cursor.execute(query, (nombre, edad,carrera))
         mysql.connection.commit()
         return redirect(url_for('index'))
