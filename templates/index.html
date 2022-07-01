@@ -1,1 +1,45 @@
 {% extends "nav.html" %}
+
+{% block body %}
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <form action="{{url_for('add_est')}}" method="POST">
+                    
+                </form>
+            </div>
+
+
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Carrera</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+
+                    {% for est in estudiantes %}
+                    <tr>
+                        <th scope="row">{{ est[0] }}</th>
+                        <td>{{est[1]}}</td>
+                        <td>{{est[2]}}</td>
+                        <td>{{est[3]}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
