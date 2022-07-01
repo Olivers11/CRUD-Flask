@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from flask_mysqldb import MySQL
 
 
@@ -35,7 +35,14 @@ def index():
 @app.route("/add_est", methods=['POST'])
 def add_est():
     if request.method == 'POST':
-        pass
+        nombre = request.form['nombre']
+        edad = request.form['edad']
+        carrera = request.form['carrera']
+        cursor = mysql.connection.cursor()
+        query = "INSERT INTO estudiante(nombre, edad carrera) VALUES(%s, %s, %s)"
+        cursor.execute(query, (nombre, edad,carrera))
+        mysql.connection.commit()
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
